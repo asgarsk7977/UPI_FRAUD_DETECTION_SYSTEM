@@ -1,0 +1,6 @@
+QUESTION,OPTION_A,OPTION_B,OPTION_C,OPTION_D,CORRECT
+Is sharing banking OTP via call is good?,Yes,No,"Yes, Friend and family",Maybe,B
+If you receive unauthorized money in your bank than you keep that money?,No,Yes,"No, Call bank to inform",Maybe,C
+Should you click unknown links received on SMS/WhatsApp?,No,Yes,If message looks real,Maybe,A
+Is it safe to share UPI PIN with anyone?,Yes,No,Only with friends,Sometimes,B
+Should you verify merchant name before payment?,Yes,No,Only if amount is high,Maybe,A
