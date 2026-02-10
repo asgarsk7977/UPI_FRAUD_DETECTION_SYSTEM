@@ -11,7 +11,18 @@ The project follows standard software engineering design principles, including E
 
 Although the current system uses rule-based detection, it is designed to be easily extensible. In the future, the project can be enhanced by integrating machine learning models, real-time bank/UPI APIs, behavioral analysis, and cloud deployment to improve accuracy and scalability.
 
-This project is suitable for academic purposes, especially for students studying MSC IT, Computer Science, or Data Science, and serves as a practical demonstration of real-time fraud detection concepts using Python.
+Yeh system sirf random guess nahi karta, balki "Multi-Factor Risk Scoring" model par kaam karta hai. Niche diye gaye 5 points ke basis par fraud detect hota hai:
+Global Blacklist Check (100% Risk):
+System sabse pehle check karta hai ki kya woh UPI ID Admin dwara pehle se block ki gayi hai. Agar milti hai, toh turant 100% Fraud declare kar deta hai.
+Temporal Risk (Time Analysis - 20% Score):
+Raat ke 11 PM se subah 4 AM ke beech hone wale transactions ko risky maana jata hai, kyunki zyadatar fraud isi time window mein hote hain.
+Threshold & Value Risk (Amount Analysis - Up to 50% Score):
+Agar transaction ₹90,000 se upar hai, toh high alert trigger hota hai. ₹45,000 se upar hone par medium risk score add hota hai.
+Phishing Pattern Recognition (55% Score):
+System UPI handle (naam) ko scan karta hai. Agar handle mein lottery, win, prize, gift, ya hacker jaise keywords milte hain, toh score badh jata hai.
+Mule Account Detection: Agar handle bahut lamba hai ya usme ajeeb numbers (random generation) hain, toh system use "Mule Account" (fake account) ki category mein daalta hai.
+Geographic Anomaly (Location Shift - 35% Score):
+Aapne code mein Mumbai ko home city set kiya hai. Agar koi transaction kisi door ki city se hota hai, toh system use "IP/Location shift" maankar risk score badha deta hai.
 
 ⭐ Key Features
 
