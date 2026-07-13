@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Welcome to UPI Fraud Detection System</h1>
+
+{% if logged_in %}
+    <p>Hello, {{ session.username }}! You are now logged in.</p>
+    
+    <div style="text-align: center; margin-top: 30px;">
+        <a href="{{ url_for('transaction') }}" style="background-color: #3498db; color: white; padding: 15px 30px; text-decoration: none; border-radius: 5px; font-weight: bold; margin: 10px;">Check Transactions</a>
+        <a href="{{ url_for('admin') }}" style="background-color: #2ecc71; color: white; padding: 15px 30px; text-decoration: none; border-radius: 5px; font-weight: bold; margin: 10px;">View Admin Dashboard</a>
+    </div>
+{% else %}
+    <p>This system uses Machine Learning to detect fraudulent UPI transactions. Our Random Forest algorithm analyzes transaction patterns to identify potentially fraudulent activities.</p>
+
+    <h2>How It Works</h2>
+    <ul>
+        <li>Users enter transaction details including amount and risk level</li>
+        <li>Our ML model analyzes the data to predict if the transaction is safe or fraudulent</li>
+        <li>All transactions are stored in our database for future analysis</li>
+        <li>Administrators can view all transactions and their fraud detection results</li>
+    </ul>
+
+    <h2>Features</h2>
+    <ul>
+        <li>Real-time fraud detection using Machine Learning</li>
+        <li>User registration and authentication</li>
+        <li>Transaction entry form with validation</li>
+        <li>Admin dashboard for monitoring all transactions</li>
+        <li>Secure database storage</li>
+    </ul>
+
+    <div style="text-align: center; margin-top: 30px;">
+        <a href="{{ url_for('login') }}" style="background-color: #3498db; color: white; padding: 15px 30px; text-decoration: none; border-radius: 5px; font-weight: bold; margin: 10px;">Login to Get Started</a>
+        <a href="{{ url_for('register') }}" style="background-color: #2ecc71; color: white; padding: 15px 30px; text-decoration: none; border-radius: 5px; font-weight: bold; margin: 10px;">Register New Account</a>
+    </div>
+{% endif %}
+{% endblock %}

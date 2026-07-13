@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block title %}Admin Dashboard - UPI Fraud Detection System{% endblock %}
+
+{% block content %}
+<h1>Admin Dashboard</h1>
+<h2>All Transactions</h2>
+
+{% if transactions %}
+<table>
+    <thead>
+        <tr>
+            <th>Date</th>
+            <th>UPI ID</th>
+            <th>Transaction ID</th>
+            <th>Mobile Number</th>
+            <th>Amount (₹)</th>
+            <th>Risk Level</th>
+            <th>Result</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for transaction in transactions %}
+        <tr>
+            <td>{{ transaction.date }}</td>
+            <td>{{ transaction.upi_id }}</td>
+            <td>{{ transaction.transaction_id }}</td>
+            <td>{{ transaction.mobile_number }}</td>
+            <td>{{ transaction.amount }}</td>
+            <td>{{ transaction.risk_level }}</td>
+            <td class="{% if transaction.result == 'Fraud' %}fraud{% else %}safe{% endif %}">
+                {{ transaction.result }}
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% else %}
+<p>No transactions found.</p>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}Transaction Result - UPI Fraud Detection System{% endblock %}
+
+{% block content %}
+<div class="result-container">
+    <h1>Transaction Analysis Result</h1>
+    
+    {% if result == 'Safe' %}
+        <div class="safe-transaction">SAFE TRANSACTION</div>
+        <p style="font-size: 1.2rem; margin-top: 20px;">This transaction has been analyzed and identified as safe.</p>
+    {% else %}
+        <div class="fraud-transaction">FRAUD TRANSACTION</div>
+        <p style="font-size: 1.2rem; margin-top: 20px;">Warning: This transaction has been identified as potentially fraudulent.</p>
+    {% endif %}
+    
+    <div style="margin-top: 30px;">
+        <a href="{{ url_for('transaction') }}" style="background-color: #3498db; color: white; padding: 12px 20px; text-decoration: none; border-radius: 4px; margin-right: 10px;">Check Another Transaction</a>
+        <a href="{{ url_for('home') }}" style="background-color: #95a5a6; color: white; padding: 12px 20px; text-decoration: none; border-radius: 4px;">Go Home</a>
+    </div>
+</div>
+{% endblock %}
